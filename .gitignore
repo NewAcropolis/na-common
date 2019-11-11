@@ -1,0 +1,8 @@
+# python
+.pytest_cache
+.coverage
+*.pyc
+
+# Distribution / packaging
+dist/
+*.egg-info/
