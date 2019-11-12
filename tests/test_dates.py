@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from common.dates import get_nice_event_dates
+from na_common.dates import get_nice_event_dates
 
 
 class MockEventDates:
@@ -15,3 +15,18 @@ def test_get_nice_event_dates():
     ]
     nice_event_dates = get_nice_event_dates(event_dates)
     assert nice_event_dates == 'Tue 1, Tue 15 of January, Tue 5 of February - 12 PM'
+
+def test_get_nice_event_dates_with_dict():
+    event_dates = [
+        {
+            "event_datetime": "2019-01-01 12:00",
+        },
+        {
+            "event_datetime": "2019-01-08 12:00",
+        },
+        {
+            "event_datetime": "2019-02-05 12:00",
+        }
+    ]
+    nice_event_dates = get_nice_event_dates(event_dates)
+    assert nice_event_dates == 'Tue 1, Tue 8 of January, Tue 5 of February - 12 PM'

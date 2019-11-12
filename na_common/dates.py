@@ -1,4 +1,22 @@
+from datetime import datetime
+
+
+class EventDate:
+    def __init__(self, event_datetime):
+        self.event_datetime = datetime.strptime(event_datetime, '%Y-%m-%d %H:%M')
+
+
+def get_event_date_objs(event_dates):
+    event_date_objs = []
+    for e in event_dates:
+        event_date_objs.append(EventDate(e['event_datetime']))
+    return event_date_objs
+
+
 def get_nice_event_dates(event_dates):
+    if event_dates and type(event_dates[0]) is dict:
+        event_dates = get_event_date_objs(event_dates)
+
     event_dates.sort(key=lambda k: k.event_datetime)
 
     event_date_str = ''
