@@ -22,7 +22,7 @@ flake8 .
 display_result $? 1 "Code style check"
 
 ## Code coverage
-py.test --cov=common --cov-report=term-missing tests/ --strict -v
+py.test --cov=na_common --cov-report=term-missing tests/ --strict -v
 
 display_result $? 3 "Unit tests"
 
