@@ -17,16 +17,18 @@ DELIVERY_ZONES = [
 
 
 class statuses:
-    DELIVERY_MISSING_ADDRESS = 'missing_address'
-    DELIVERY_REFUND = 'refund'
     DELIVERY_EXTRA = 'extra'
+    DELIVERY_MISSING_ADDRESS = 'missing_address'
+    DELIVERY_PAID = 'paid'
     DELIVERY_POSTAGE_EUROPE = 'postage_uk_europe'
     DELIVERY_POSTAGE_ROW = 'postage_uk_row'
+    DELIVERY_REFUND = 'refund'
 
     DELIVERY_STATUSES = [
-        DELIVERY_MISSING_ADDRESS,
-        DELIVERY_REFUND,
         DELIVERY_EXTRA,
+        DELIVERY_MISSING_ADDRESS,
+        DELIVERY_PAID,
         DELIVERY_POSTAGE_EUROPE,
-        DELIVERY_POSTAGE_ROW
+        DELIVERY_POSTAGE_ROW,
+        DELIVERY_REFUND,
     ]
