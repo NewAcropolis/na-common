@@ -21,6 +21,7 @@ class statuses:
     DELIVERY_EXTRA_PAID = 'extra_paid'
     DELIVERY_MISSING_ADDRESS = 'missing_address'
     DELIVERY_PAID = 'paid'
+    DELIVERY_NOT_PAID = 'no_delivery_fee'
     DELIVERY_POSTAGE_EUROPE = 'postage_uk_europe'
     DELIVERY_POSTAGE_ROW = 'postage_uk_row'
     DELIVERY_REFUND = 'refund'
