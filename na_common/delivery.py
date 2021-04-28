@@ -5,8 +5,8 @@ DELIVERY_ZONES = [
         # https://www.royalmail.com/international-zones#europe
         'name': 'Europe',
         'codes': 'AL,AD,AM,AT,AZ,BY,BE,BA,BG,HR,CY,CZ,DK,EE,FO,FI,FR,GE,DE,GI,GR,GL,HU,IS,IE,IT,'
-                    'KZ,KG,LV,LI,LT,LU,MK,MT,MD,MC,ME,NL,NO,PL,PT,RO,RU,SM,RS,SK,ES,SE,CH,TJ,TR,TM,'
-                    'UA,UZ,VA',
+                 'KZ,KG,LV,LI,LT,LU,MK,MT,MD,MC,ME,NL,NO,PL,PT,RO,RU,SM,RS,SK,ES,SE,CH,TJ,TR,TM,'
+                 'UA,UZ,VA',
         'price': 4.50
     }, {
         'name': 'RoW',
@@ -14,6 +14,13 @@ DELIVERY_ZONES = [
         'price': 6.00
     }
 ]
+
+
+def get_delivery_zone(country_code):
+    for zone in DELIVERY_ZONES:
+        if country_code in zone['codes']:
+            return zone
+    return DELIVERY_ZONES[-1]  # Otherwise return RoW - Rest of the World
 
 
 class statuses:
