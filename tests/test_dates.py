@@ -15,7 +15,7 @@ def test_get_nice_event_dates():
         MockEventDates('2019-02-05 12:00')
     ]
     nice_event_dates = get_nice_event_dates(event_dates)
-    assert nice_event_dates == 'Tue 1, Tue 15 of January, Tue 5 of February - 12 PM'
+    assert nice_event_dates == 'Tues 1, Tues 15 of January, Tues 5 of February - 12 PM'
 
 
 def test_get_nice_event_dates_with_dict():
@@ -24,11 +24,11 @@ def test_get_nice_event_dates_with_dict():
             "event_datetime": "2019-01-01 12:00",
         },
         {
-            "event_datetime": "2019-01-08 12:00",
+            "event_datetime": "2019-01-10 12:00",
         },
         {
-            "event_datetime": "2019-02-05 12:00",
+            "event_datetime": "2019-02-06 12:00",
         }
     ]
     nice_event_dates = get_nice_event_dates(event_dates)
-    assert nice_event_dates == 'Tue 1, Tue 8 of January, Tue 5 of February - 12 PM'
+    assert nice_event_dates == 'Tues 1, Thurs 10 of January, Wed 6 of February - 12 PM'
