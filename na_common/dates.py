@@ -25,6 +25,10 @@ def get_nice_event_dates(event_dates):
     for event_date in event_dates:
         m = event_date.event_datetime.strftime("%B")
         d = event_date.event_datetime.strftime("%a %-d, ")
+        if 'Tue' in d:
+            d = d.replace('Tue', 'Tues')
+        elif 'Thu' in d:
+            d = d.replace('Thu', 'Thurs')
 
         if not _event_month:
             _event_month = event_date.event_datetime.strftime("%B")
