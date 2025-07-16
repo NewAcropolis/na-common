@@ -13,7 +13,7 @@ def get_event_date_objs(event_dates):
     return event_date_objs
 
 
-def get_nice_event_dates(event_dates):
+def get_nice_event_dates(event_dates, show_time=True):
     if event_dates and type(event_dates[0]) is dict:
         event_dates = get_event_date_objs(event_dates)
 
@@ -41,8 +41,10 @@ def get_nice_event_dates(event_dates):
             _event_month = m
 
     event_date_str = (event_date_str if len(event_date_str) > 2 else '') + _event_dates[:-2] + ' of ' + _event_month
-    event_datetime = event_dates[0].event_datetime
-    event_date_str += ' - ' + event_datetime.strftime(
-        "%-I:%M %p" if event_datetime.strftime("%M") != '00' else "%-I %p")
+
+    if show_time:
+        event_datetime = event_dates[0].event_datetime
+        event_date_str += ' - ' + event_datetime.strftime(
+            "%-I:%M %p" if event_datetime.strftime("%M") != '00' else "%-I %p")
 
     return event_date_str
