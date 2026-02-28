@@ -6,3 +6,5 @@
 # Distribution / packaging
 dist/
 *.egg-info/
+
+venv

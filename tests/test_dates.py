@@ -4,18 +4,19 @@ from na_common.dates import get_nice_event_dates
 
 
 class MockEventDates:
-    def __init__(self, event_datetime):
+    def __init__(self, event_datetime, end_time=None):
         self.event_datetime = datetime.strptime(event_datetime, "%Y-%m-%d %H:%M")
+        self.end_time = datetime.strptime(end_time, "%H:%M") if end_time else None
 
 
 def test_get_nice_event_dates():
     event_dates = [
-        MockEventDates('2019-01-01 12:00'),
+        MockEventDates('2019-01-01 12:00', "14:00"),
         MockEventDates('2019-01-15 12:00'),
         MockEventDates('2019-02-05 12:00')
     ]
     nice_event_dates = get_nice_event_dates(event_dates)
-    assert nice_event_dates == 'Tues 1, Tues 15 of January, Tues 5 of February - 12 PM'
+    assert nice_event_dates == 'Tues 1, Tues 15 of January, Tues 5 of February - 12 PM to 2 PM'
 
 
 def test_get_nice_event_dates_with_dict():

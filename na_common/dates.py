@@ -2,14 +2,15 @@ from datetime import datetime
 
 
 class EventDate:
-    def __init__(self, event_datetime):
+    def __init__(self, event_datetime, end_time):
         self.event_datetime = datetime.strptime(event_datetime, '%Y-%m-%d %H:%M')
+        self.end_time = datetime.strptime(end_time, '%H:%M') if end_time else None
 
 
 def get_event_date_objs(event_dates):
     event_date_objs = []
     for e in event_dates:
-        event_date_objs.append(EventDate(e['event_datetime']))
+        event_date_objs.append(EventDate(e['event_datetime'], e['end_time'] if 'end_time' in e else None))
     return event_date_objs
 
 
@@ -46,5 +47,8 @@ def get_nice_event_dates(event_dates, show_time=True):
         event_datetime = event_dates[0].event_datetime
         event_date_str += ' - ' + event_datetime.strftime(
             "%-I:%M %p" if event_datetime.strftime("%M") != '00' else "%-I %p")
+        if event_dates[0].end_time:
+            event_date_str += " to " + event_dates[0].end_time.strftime(
+                "%-I:%M %p" if event_dates[0].end_time.strftime("%M") != '00' else "%-I %p")
 
     return event_date_str
