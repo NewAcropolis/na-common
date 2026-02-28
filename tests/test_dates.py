@@ -23,6 +23,7 @@ def test_get_nice_event_dates_with_dict():
     event_dates = [
         {
             "event_datetime": "2019-01-01 12:00",
+            "end_time": "00:00"
         },
         {
             "event_datetime": "2019-01-10 12:00",
