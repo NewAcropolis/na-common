@@ -47,7 +47,7 @@ def get_nice_event_dates(event_dates, show_time=True):
         event_datetime = event_dates[0].event_datetime
         event_date_str += ' - ' + event_datetime.strftime(
             "%-I:%M %p" if event_datetime.strftime("%M") != '00' else "%-I %p")
-        if event_dates[0].end_time:
+        if event_dates[0].end_time and event_dates[0].end_time.strftime("%H:%M") != "00:00":
             event_date_str += " to " + event_dates[0].end_time.strftime(
                 "%-I:%M %p" if event_dates[0].end_time.strftime("%M") != '00' else "%-I %p")
 
